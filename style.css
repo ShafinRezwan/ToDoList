@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+
+/* universal reset */
+ /*With border-box, the padding and border included inside the declared width/height*/
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-family:"Pixelify Sans";
+}
+
+body{
+    color: white;
+    background-color: #DB3A34 ;
+}
+
+#app-name {
+    text-transform:uppercase;
+    font-weight: 300;
+    color: white;
+}
