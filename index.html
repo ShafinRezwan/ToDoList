@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Get Sh*t Done</title>
 </head>
 <body> 
@@ -12,14 +12,18 @@
     <div class="dashboard">
         <div class="calendar">
             <span id="day">Monday</span>
-            <span id="date">16</span>
+
+            <div class="date-wrapper">
+                <span id="date">01</span>
+                <span id="back">&lt;</span>
+                <span id="forward">&gt;</span>
+            </div>
+            
             <span id="month">June</span>
-            <span id="back">&lt;</span>
-            <span id="forward">&gt;</span>
         </div>
 
         <div class="progress">
-            <h3>PROGRESS</h3>
+            <h4 id="progress-title">PROGRESS</h4>
             <progress id="progress-bar" value="0" max="100"></progress>
         </div>
 
@@ -48,7 +52,6 @@
         </div>    
         <button class="finish-day">Finish Day</button>
     </div>
-
 
 
 
