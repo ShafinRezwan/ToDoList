@@ -36,9 +36,9 @@ function currentTime(date) {
     dateElement.textContent = String(today.getDate()).padStart(2,'0');
     monthElement.textContent = monthsOfYear[today.getMonth()];
     
-    const finishBtn = document.querySelector('.finish-day');
-    finishBtn.classList.remove('over');
-    finishBtn.textContent = 'Finish Day';
+    toggleFinish(date);
+    
+ 
 };
 
 
@@ -54,16 +54,56 @@ const circles =  document.querySelectorAll(".circle-toggle");
     });
 
 
-const finishDay = document.querySelector(".finish-day");
-finishDay.addEventListener('click', () => {
-    const isFinished = finishDay.classList.toggle('over');
+// finish day toggle
+function toggleFinish(date) {
+    const finishDay = document.querySelector(".finish-day");
+    const dateKey = getDateKey(date);
+    // checks if date has already been marked "finished"
+    const isFinished = localStorage.getItem(`day-finished-${dateKey}`) === 'true';
+    const dateElement = document.querySelector('#date');
+    
+     // set initial button
     if (isFinished) {
-        finishDay.textContent = "Day Over"
+        finishDay.classList.add('over');
+        finishDay.textContent = "Day Over";
+        dateElement.classList.add('finish');
+    } else {
+        finishDay.classList.remove('over');
+        finishDay.textContent = "Finish Day";
+        dateElement.classList.remove('finish');
     }
-    else {
-         finishDay.textContent = 'Finish Day';
-    }
-   
-});
 
+    // Remove old event listener if one exists
+    // clone button without previously attached event listeners
+    const newButton = finishDay.cloneNode(true); 
+    finishDay.parentNode.replaceChild(newButton, finishDay);
 
+    newButton.addEventListener('click', () => {
+        const updatedState = !newButton.classList.contains('over');
+
+        // Update state when button is clicked
+        if (updatedState) {
+            newButton.classList.add('over');
+            newButton.textContent = "Day Over";
+            dateElement.classList.add('finish');
+        } else {
+            newButton.classList.remove('over');
+            newButton.textContent = "Finish Day";
+            dateElement.classList.remove('finish');
+        }
+        // Save new state to localStorage
+        localStorage.setItem(`day-finished-${dateKey}`, updatedState);
+    });
+
+};
+
+  // Format as 'YYYY-MM-DD'
+function getDateKey(date) {
+  return date.toISOString().split('T')[0];
+}
+
+function addTask() {
+    const newTask = document.querySelector("#todo-input");
+    const addTaskBtn = document.querySelector('#add-task-btn');
+    
+}
