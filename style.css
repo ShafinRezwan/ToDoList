@@ -7,6 +7,7 @@
   --page: #EDD382;
   --accent: #246EB9;
   --text: #ffffff;
+  --checked: #5DC128
 }
 
 
@@ -151,6 +152,8 @@ body{
 }
 
 
+/* add task */ 
+
 .add-task {
     display: flex;
     align-items: center;
@@ -196,4 +199,116 @@ body{
     cursor: pointer;
 }
 
+/* to do list */
 
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.task-board {
+    width: 469px;
+    height: 250px;
+    background-color: var(--page);
+    border-radius: 30px;
+    border: 5px solid #000000;
+    box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.3); 
+    padding: 20px 20px;
+}
+
+.task-list  {
+  list-style-type: none;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px 30px; /* vertical and horizontal spacing */
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  font-size: 20px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.circle-toggle {
+   width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #DDC169;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s ;
+}
+
+.circle-toggle.checked {
+  background-color: var(--checked);
+  border: 2px solid white;
+
+}
+
+
+.task-text {
+  display: inline-block;
+	position: relative;
+	transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+
+.task-text::after{
+  content: '';
+	position: absolute;
+	display: block;
+	left: 0;
+  top: 50%;
+  height: 2px;
+  width: 0%;
+	transform: translateY(-50%);
+  transition: width 0.3s ease;
+  pointer-events: none;
+	animation: task-text 1s 0.5s cubic-bezier(.55, 0, .1, 1) 1;
+	transition: transform 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-text.completed::after {
+  width: 100%;
+}
+
+
+.finish-day {
+  padding: 5px 30px;
+
+  font-size: 20px;
+  background-color: var(--accent);
+  color: var(--text);
+  border: 3px solid white;
+  border-radius: 8px;
+  margin: 15px;
+  cursor: pointer;
+  box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.5s, box-shadow 0.2s;
+}
+
+.finish-day.over {
+  background-color: #5A5A5A;
+}
+
+
+
+/* screen greater then 600px */
+@media (min-width: 600px) {
+  .task-list {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
