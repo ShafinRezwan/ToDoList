@@ -249,7 +249,29 @@ body{
     box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.3); 
     padding: 20px 20px;
     margin-top: -90px;
+    overflow-y: auto;
+    overflow-x: auto;
+    box-sizing: border-box;
 }
+
+.task-board::-webkit-scrollbar {
+  width: 0px;                 /* Width of the scrollbar */
+  margin-right: 20px;
+  
+}
+
+.task-board::-webkit-scrollbar-track {
+ background: transparent;       /* Background of the scroll area */
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+.task-board::-webkit-scrollbar-thumb {
+  background: transparent;  /* Scroll thumb color */
+  border-radius: 8px;
+ 
+}
+
 
 .task-list  {
   list-style-type: none;
@@ -259,6 +281,7 @@ body{
   gap: 5px 30px; /* vertical and horizontal spacing */
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 .task-item {
@@ -289,6 +312,7 @@ body{
   display: inline-block;
 	position: relative;
 	transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+  text-transform: uppercase;
 }
 
 .task-text::after{

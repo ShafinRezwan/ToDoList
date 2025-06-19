@@ -14,10 +14,15 @@ window.addEventListener("DOMContentLoaded", () => {
         currentTime(today);
     });
 
+    addTask();
+    
+
     // reset finish button
     const finishBtn = document.querySelector('.finish-day');
     finishBtn.classList.remove('over');
     finishBtn.textContent = 'Finish Day';
+
+
 });
 
 
@@ -43,16 +48,20 @@ function currentTime(date) {
 
 
 
-// toggle circles
+// toggle circles this only runs on page load and doesnt apply to dynamically added circles
+/*
 const circles =  document.querySelectorAll(".circle-toggle");
     circles.forEach(circle => {
         circle.addEventListener('click', () => {
             circle.classList.toggle('checked');
             const taskText = circle.nextElementSibling;
             taskText.classList.toggle('completed');
+            updateProgress();
         });
+        taskInput.value = '';
+        updateProgress();
     });
-
+*/
 
 // finish day toggle
 function toggleFinish(date) {
@@ -102,8 +111,59 @@ function getDateKey(date) {
   return date.toISOString().split('T')[0];
 }
 
+// add task 
+
 function addTask() {
-    const newTask = document.querySelector("#todo-input");
-    const addTaskBtn = document.querySelector('#add-task-btn');
-    
-}
+    const taskInput = document.querySelector("#todo-input");
+    const taskForm = document.querySelector('#task-form');
+    const taskList = document.querySelector('.task-list');
+
+    taskForm.addEventListener('submit', (e) => {
+        
+        e.preventDefault(); // prevent form from reloading page
+
+        const taskText = taskInput.value.trim(); // remove whitespaces on edges
+        if (taskText === '') return;
+       
+        // Create new task item
+        const li = document.createElement('li');
+        li.classList.add('task-item');
+
+        // create bullet point
+        const circle = document.createElement('span');
+        circle.classList.add('circle-toggle');
+
+        // create text
+        const text = document.createElement('span');
+        text.classList.add('task-text');
+        text.textContent = taskText;
+
+        li.appendChild(circle);
+        li.appendChild(text);
+        taskList.appendChild(li);
+
+        const circles =  document.querySelectorAll(".circle-toggle");
+        circles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                circle.classList.toggle('checked');
+                const taskText = circle.nextElementSibling;
+                taskText.classList.toggle('completed');
+                updateProgress();
+            });
+            taskInput.value = '';
+            updateProgress();
+        });
+
+    });
+};
+
+
+function updateProgress() {
+    const total = document.querySelectorAll('.task-item').length;
+    const completed = document.querySelectorAll('.circle-toggle.checked').length;
+    const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+    document.querySelector('#progress-bar').value = percent;
+};
+
+
+
