@@ -39,8 +39,9 @@ A sleek, pixel-art-inspired desktop to-do list app built with Electron and vanil
 
 ## Demo
 
-![Get Sh*t Done Demo](https://github.com/ShafinRezwan/ToDoList/blob/295b91ae833b5a7b286ebab08068d25215e35f58/Wireframes/01%20Current%20Day.png)
-
+![Get Sh*t Done 01](https://github.com/ShafinRezwan/ToDoList/blob/295b91ae833b5a7b286ebab08068d25215e35f58/Wireframes/01%20Current%20Day.png)
+![Get Sh*t Done 02]([https://github.com/ShafinRezwan/ToDoList/blob/295b91ae833b5a7b286ebab08068d25215e35f58/Wireframes/01%20Current%20Day.png](https://github.com/ShafinRezwan/ToDoList/blob/e0e8662f19599d25deb210ddf75d8a865eea7d40/Wireframes/03%20Check%20off.png))
+![Get Sh*t Done 03]([https://github.com/ShafinRezwan/ToDoList/blob/295b91ae833b5a7b286ebab08068d25215e35f58/Wireframes/01%20Current%20Day.png](https://github.com/ShafinRezwan/ToDoList/blob/e0e8662f19599d25deb210ddf75d8a865eea7d40/Wireframes/04%20Hold%20Click.png))
 *A quick look at adding tasks, marking them complete, and finishing your day!*
 
 ---
