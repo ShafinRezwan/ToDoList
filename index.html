@@ -14,7 +14,7 @@
             <span id="day">Monday</span>
 
             <div class="date-wrapper">
-                <span id="date">01</span>
+                <span id="date"></span>
                 <span id="back">&lt;</span>
                 <span id="forward">&gt;</span>
             </div>
@@ -45,6 +45,17 @@
             </ul>       
         </div>    
         <button class="finish-day">Finish Day</button>
+        
+        <div id="edit-overlay" class="hidden">
+            <div class="edit-modal">
+                <input type="text" id="edit-input" placeholder="Edit task...">
+                <div class="edit-actions">
+                    <button id="confirm-edit">CONFIRM</button>
+                    <button id="delete-task">DELETE</button>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 

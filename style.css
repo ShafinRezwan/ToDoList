@@ -163,6 +163,12 @@ body{
     height: 30px;
     appearance: none;
     padding-bottom: 10px;
+
+}
+
+#progress-bar.day-done::-webkit-progress-value {
+  background-color: var(--checked);
+  transition: background-color 0.3s ease;
 }
 
 #progress-bar::-webkit-progress-bar {
@@ -313,6 +319,7 @@ body{
 	position: relative;
 	transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .task-text::after{
@@ -328,6 +335,72 @@ body{
   pointer-events: none;
 	animation: task-text 1s 0.5s cubic-bezier(.55, 0, .1, 1) 1;
 	transition: transform 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+
+#edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5); /* dimmed background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.edit-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+   margin-top: -70px;
+}
+
+#edit-input {
+  font-size: 18px;
+  padding: 20px 20px;
+  border: 5px solid black;
+  border-radius: 15px;
+  width: 377px;
+  height: 41px;
+  color: var(--text);
+  background-color: var(--page);
+  margin-bottom: 5px;
+}
+.edit-actions {
+  align-items: center;
+}
+
+.edit-actions button {
+  font-size: 19px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin: 0 5px;
+  border: 4px solid var(--text);
+  cursor: pointer;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.3);
+}
+
+#confirm-edit {
+  background-color: var(--checked);
+  color: var(--text);
+}
+
+#delete-task {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.hidden {
+  display: none;
+}
+#edit-overlay.hidden {
+  display: none;
 }
 
 .task-text.completed {
