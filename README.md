@@ -49,7 +49,10 @@ A sleek, pixel-art-inspired desktop to-do list app built with Electron and vanil
 ## Installation
 
 1. **Clone this repository**
-
    ```bash
    git clone https://github.com/ShafinRezwan/getSh*tdone.git
    cd getSh*tdone
+   
+Install NPM packages npm install
+Install ElectronJS npm install --save-dev electron
+   
