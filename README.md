@@ -39,7 +39,7 @@ A sleek, pixel-art-inspired desktop to-do list app built with Electron and vanil
 
 ## Demo
 
-![Get Sh*t Done Demo](assets/demo.gif)
+![Get Sh*t Done Demo](Wireframes/01 Current Day.png)
 
 *A quick look at adding tasks, marking them complete, and finishing your day!*
 
